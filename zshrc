@@ -7,7 +7,7 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git)
+plugins=(git brew vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,6 +15,11 @@ source $ZSH/oh-my-zsh.sh
 bindkey -e
 bindkey "^f" forward-word
 bindkey "^b" backward-word
+
+# ghc management
+use_ghc() {
+  export PATH=$HOME/local/ghc/$1/bin:$PATH
+}
 
 export EDITOR='vim'
 
