@@ -21,6 +21,17 @@ use_ghc() {
   export PATH=$HOME/local/ghc/$1/bin:$PATH
 }
 
+# handy scp wrapper for avoiding the weird local-to-local behavior
+scp() {
+  if grep -q : <(printf %s "$@")
+  then
+    command scp "$@"
+  else
+    echo If you really want to use scp to do cp"'"s job, type '`command !!`'.
+    return 1
+  fi
+}
+
 export EDITOR='vim'
 
 # User configuration
