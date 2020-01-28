@@ -1,13 +1,16 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="afowler"
+# prompt customization
+ZSH_THEME="agkozak"
+AGKOZAK_LEFT_PROMPT_ONLY=1
+
 CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git brew vagrant)
+plugins=(gitfast git brew vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,9 +35,11 @@ scp() {
   fi
 }
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # User configuration
 if [[ -f $ZSH/site-config ]]; then
   source $ZSH/site-config
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
